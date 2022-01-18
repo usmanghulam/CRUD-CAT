@@ -36,7 +36,12 @@ export const useStore = () => {
 			store.cat = {} as FormValues;
 		},
 		updateCat: (cat: FormValues) => {
-			console.log(JSON.stringify(cat));
+			axios.post('http://localhost:5000/cats/update', cat)
+			.then(res => {
+				const filterd = store.cats.filter(oldcats => cat._id !== oldcats._id);
+				filterd.push(res.data);
+				store.cats = filterd;
+			}).catch(err => console.log(err));
 		},
 	}));
 	return store;
