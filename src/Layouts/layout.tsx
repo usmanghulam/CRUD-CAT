@@ -15,10 +15,10 @@ const layout = ({ children }: any) => {
                </div>
             </Row>
             <Row>
-                <Col className="border" lg="3" xl="3" sm="3" >
+                <Col className="" lg="3" xl="3" sm="3" >
                     <Sidebar />
                 </Col>
-                <Col className="border">
+                <Col className="">
                     {children}
                 </Col>
             </Row>

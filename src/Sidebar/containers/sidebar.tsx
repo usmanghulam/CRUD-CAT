@@ -8,12 +8,14 @@ const sidebar = observer(() => {
     useEffect(() => {
         typeof getAllCats === "function" && getAllCats();
     }, []);
-    const showTodos = cats.map(({ name, description, _id, breed, age }) => <div className="border" key={_id}>
-        <Dropdown {...{ removeCat, getSingleCat, _id }} />
-        <b>{name}</b>
-        <b>{age}</b>
-        <b>{breed}</b>
-        <p>{description}</p>
+    const showTodos = cats.map(({ name, description, _id, breed, age }) => <div className="border-bottom" key={_id}>
+        <div className='float-right'><Dropdown {...{ removeCat, getSingleCat, _id }} /></div>
+        <div>
+            <p>Name: <b>{name}</b></p>
+            <p>Age: {age}</p>
+            <p>Breed: {breed}</p>
+            {description && <p>Description: {description}</p>}
+        </div>
     </div>)
     return (
         <div className="">
